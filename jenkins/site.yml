@@ -1,7 +1,7 @@
 
 - name: Configure Jenkins server
   hosts: all
-  remote_user: ec2-user
+  #remote_user: ec2-user
   tasks:
     - name: install git only if it is not already installed
       yum:

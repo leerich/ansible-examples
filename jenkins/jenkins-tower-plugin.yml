@@ -9,6 +9,7 @@
       url_username: admin
       url_password: admin
       url: http://localhost:8080
+      with_dependencies: yes
       
   - name: Restart Jenkins
     service: 

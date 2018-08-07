@@ -6,3 +6,6 @@
     jenkins_plugin:
       name: ansible-tower
       state: latest
+      url_username: admin
+      url_password: admin
+      url: http://localhost:8080

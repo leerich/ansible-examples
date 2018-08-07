@@ -9,3 +9,8 @@
       url_username: admin
       url_password: admin
       url: http://localhost:8080
+      
+  - name: Restart Jenkins
+    service: 
+      name: jenkins
+      state: restarted

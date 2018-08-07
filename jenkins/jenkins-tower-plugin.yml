@@ -2,7 +2,7 @@
   hosts: all
   
   tasks:
-  - name: Invote Jenkins plugin Module
+  - name: Invoke Jenkins plugin Module
     jenkins_plugin:
       name: ansible-tower
       state: latest

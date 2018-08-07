@@ -11,6 +11,24 @@
       url: http://localhost:8080
       with_dependencies: yes
       
+  - name: Invoke Jenkins plugin Module
+    jenkins_plugin:
+      name: credentials
+      state: latest
+      url_username: admin
+      url_password: admin
+      url: http://localhost:8080
+      with_dependencies: yes
+      
+  - name: Invoke Jenkins plugin Module
+    jenkins_plugin:
+      name: script-security
+      state: latest
+      url_username: admin
+      url_password: admin
+      url: http://localhost:8080
+      with_dependencies: yes
+      
   - name: Restart Jenkins
     service: 
       name: jenkins

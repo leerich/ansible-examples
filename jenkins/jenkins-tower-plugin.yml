@@ -4,30 +4,18 @@
   tasks:
   - name: Invoke Jenkins plugin Module
     jenkins_plugin:
-      name: ansible-tower
+      name: "{{ item }}"
       state: latest
       url_username: admin
       url_password: admin
       url: http://localhost:8080
       with_dependencies: yes
+    with_items:
+      - ansible-tower
+      - credentials
+      - script-security
+      - structs
       
-  - name: Invoke Jenkins plugin Module
-    jenkins_plugin:
-      name: credentials
-      state: latest
-      url_username: admin
-      url_password: admin
-      url: http://localhost:8080
-      with_dependencies: yes
-      
-  - name: Invoke Jenkins plugin Module
-    jenkins_plugin:
-      name: script-security
-      state: latest
-      url_username: admin
-      url_password: admin
-      url: http://localhost:8080
-      with_dependencies: yes
       
   - name: Restart Jenkins
     service: 

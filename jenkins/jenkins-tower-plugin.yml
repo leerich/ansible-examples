@@ -1,0 +1,8 @@
+- name: Install Tower plugin into Jenkins
+  hosts: all
+  
+  tasks:
+  - name: Invote Jenkins plugin Module
+    jenkins_plugin:
+      name: ansible-tower
+      state: latest

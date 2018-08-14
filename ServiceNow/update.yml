@@ -7,6 +7,7 @@
   - name: Create an incident
     snow_record:
       username: admin
+      password: "{{ snow_password }}"
       instance: dev59643
       state: present
       data:

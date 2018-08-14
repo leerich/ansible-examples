@@ -15,3 +15,11 @@
         severity: 3
         priority: 2
     register: new_incident
+
+  - name: Delete the record we just made
+    snow_record:
+      username: admin
+      password: "{{ snow_password }}"
+      instance: dev59643
+      state: absent
+      number: "{{new_incident['record']['number']}}"

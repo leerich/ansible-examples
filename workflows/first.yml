@@ -37,3 +37,9 @@
       fail:
         msg: "the command failed"
       when: dnsRegResult.failed == true
+      
+    - name: set stat to pass to next job template
+      set_stats:
+        data:
+          passed_answer: "{{ the_answer }}"
+        aggregate: no

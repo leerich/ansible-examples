@@ -2,7 +2,7 @@
 - name: register {{ dnsType }} record for {{ siteDnsRecord }}.{{ dnsZone }}
   connection: local
   hosts: localhost
-#  gather_facts: Yes
+  gather_facts: no
   tasks:
     - name: update dns
       #nsupdate:

@@ -1,0 +1,39 @@
+---
+- name: register {{ dnsType }} record for {{ siteDnsRecord }}.{{ dnsZone }}
+  connection: local
+  hosts: localhost
+#  gather_facts: Yes
+  tasks:
+    - name: update dns
+      #nsupdate:
+      #  server: "{{ dnsServer }}"
+      #  zone: "{{ dnsZone }}"
+      #  record: "{{ dnsRecord }}"
+      #  value:  "{{ dnsValue }}"
+      #  type: "{{ dnsType }}"
+      #  ttl: 86400
+      command: /usr/bin/date
+      ignore_errors: yes
+      register: dnsRegResult
+ 
+    - name: display result
+      debug:
+        var: dnsRegResult
+ 
+    - name: run set_stats
+      set_fact:
+        the_answer: 42
+ 
+    - name: run set_stats
+      set_fact:
+        the_answer: 100
+      when: dnsRegResult.failed == true
+ 
+    - name: display result
+      debug:
+        var: the_answer
+ 
+    - name: fail the play if not succeed
+      fail:
+        msg: "the command failed"
+      when: dnsRegResult.failed == true

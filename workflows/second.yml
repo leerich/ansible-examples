@@ -1,0 +1,9 @@
+---
+- name: test
+  connection: local
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: "Output the_answer"
+      debug:
+        msg: "{{ passed_answer }}"

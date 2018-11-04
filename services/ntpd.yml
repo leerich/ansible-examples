@@ -1,10 +1,11 @@
 ---
 - hosts: all
+  gather_facts: no
 
   tasks:
   - name: install ntpd
     yum:
-      name: ntpd
+      name: ntp
       state: latest
       
   - name: enable and start ntpd

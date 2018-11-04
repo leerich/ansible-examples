@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+  tasks:
+  - name: install ntpd
+    yum:
+      name: ntpd
+      state: latest
+      
+  - name: enable and start ntpd
+    service:
+      name: ntpd
+      state: enabled
+      enabled: yes
+

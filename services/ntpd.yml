@@ -11,6 +11,6 @@
   - name: enable and start ntpd
     service:
       name: ntpd
-      state: enabled
+      state: started
       enabled: yes
 

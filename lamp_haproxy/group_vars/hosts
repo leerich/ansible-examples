@@ -4,3 +4,5 @@
 [lbservers]
 192.168.1.2
 
+[webservers]
+192.168.1.3

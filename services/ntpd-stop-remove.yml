@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+      
+  - name: enable and start ntpd
+    service:
+      name: ntpd
+      state: stopped
+      enabled: no
+
+  - name: install ntpd
+    yum:
+      name: ntp
+      state: absent

@@ -10,7 +10,8 @@
     - common
 
 - name: configure and deploy the webservers and application code
-  hosts: tag_Name_Demo_Linux_Webserver
+  #hosts: tag_Name_Demo_Linux_Webserver
+  hosts: all
   gather_facts: false
   #remote_user: ec2-user
 
@@ -18,7 +19,8 @@
     - web
 
 - name: deploy MySQL and configure the databases
-  hosts: tag_Name_Demo_Linux_Dbserver
+  #hosts: tag_Name_Demo_Linux_Dbserver
+  hosts: all
   gather_facts: false
   #remote_user: ec2-user
  

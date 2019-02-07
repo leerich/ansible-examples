@@ -2,7 +2,7 @@
 # This playbook deploys a simple standalone JBoss server.
 
 - hosts: all
-  gather_facts: no
+  gather_facts: yes
 
   roles:
     - jboss-standalone

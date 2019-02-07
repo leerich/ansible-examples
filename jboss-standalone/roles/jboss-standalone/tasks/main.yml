@@ -18,7 +18,9 @@
   command: chdir=/usr/share /bin/mv jboss-as-7.1.1.Final jboss-as creates=/usr/share/jboss-as
 
 - name: Download newer jar file
-  get_url: url=http://repo1.maven.org/maven2/org/jboss/modules/jboss-modules/1.1.5.GA/jboss-modules-1.1.5.GA.jar dest=/usr/share/jboss-as/jboss-modules.jar
+  get_url: 
+    url=http://repo1.maven.org/maven2/org/jboss/modules/jboss-modules/1.1.5.GA/jboss-modules-1.1.5.GA.jar 
+    dest=/usr/share/jboss-as/jboss-modules.jar
     force: yes
     group: jboss
     owner: jboss

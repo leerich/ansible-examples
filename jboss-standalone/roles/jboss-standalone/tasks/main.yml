@@ -19,8 +19,8 @@
 
 - name: Download newer jar file
   get_url: 
-    url=http://repo1.maven.org/maven2/org/jboss/modules/jboss-modules/1.1.5.GA/jboss-modules-1.1.5.GA.jar 
-    dest=/usr/share/jboss-as/jboss-modules.jar
+    url: http://repo1.maven.org/maven2/org/jboss/modules/jboss-modules/1.1.5.GA/jboss-modules-1.1.5.GA.jar 
+    dest: /usr/share/jboss-as/jboss-modules.jar
     force: yes
     group: jboss
     owner: jboss

@@ -64,4 +64,4 @@
 #  - "{{ http_port }}/tcp"
 #  - "{{ https_port }}/tcp"
 - name: Add admin user
-  command: /usr/share/jboss-as/bin admin r3dh4t
+  command: /usr/share/jboss-as/bin/add-user.sh admin r3dh4t

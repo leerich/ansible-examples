@@ -16,3 +16,8 @@
 
 - name: Create the GPG key for REMI
   copy: src=RPM-GPG-KEY-remi dest=/etc/pki/rpm-gpg
+
+- name: stop httpd
+  service:
+    name: httpd
+    state: stopped

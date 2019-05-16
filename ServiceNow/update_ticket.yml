@@ -7,7 +7,7 @@
   - name: Create a change request
     snow_record:
       username: admin
-      password: "{{ snow_pass }}"
+      password: "{{ snow_password }}"
       instance: "{{ snow_instance }}"
       state: present
       data:

@@ -1,15 +1,19 @@
 ---
+- hosts: localhost
+  connection: local
+  gather_facts: false
 
-- name: Create a change request
-  snow_record:
-    username: admin
-    password: "{{ snow_pass }}"
-    instance: "{{ snow_instance }}"
-    state: present
-    data:
-      short_description: "This is a test incident opened by Ansible"
-      priority: 2
-    table: change_request
-  register: new_change_request
+  tasks:
+  - name: Create a change request
+    snow_record:
+      username: admin
+      password: "{{ snow_pass }}"
+      instance: "{{ snow_instance }}"
+      state: present
+      data:
+        short_description: "This is a test incident opened by Ansible"
+        priority: 2
+      table: change_request
+    register: new_change_request
   
-- debug: var=new_change_request
+  - debug: var=new_change_request

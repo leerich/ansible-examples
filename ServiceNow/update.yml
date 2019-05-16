@@ -8,7 +8,7 @@
     snow_record:
       username: admin
       password: "{{ snow_password }}"
-      instance: dev59643
+      instance: "{{ snow_instance }}"
       state: present
       data:
         short_description: "This is a test incident opened by Ansible"
@@ -24,6 +24,6 @@
     snow_record:
       username: admin
       password: "{{ snow_password }}"
-      instance: dev59643
+      instance: "{{ snow_instance }}"
       state: present
       number: "{{new_incident['record']['number']}}"

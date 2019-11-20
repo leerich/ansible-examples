@@ -12,20 +12,20 @@
   tasks:
   - name: Power off guest
     vsphere_guest:
-      guest: CentOS-7-host*
-      #guest: "{{ item }}"
+      #guest: CentOS-7-host*
+      guest: "{{ item }}"
       state: powered_off
       force: yes
       validate_certs: no
-    #with_items:
-    #  - "{{ groups['CentOS-7-host'] }}"
+    with_items:
+      - "{{ groups['CentOS-7-host'] }}"
       
   - name: Delete guest
     vsphere_guest:
-      #guest: "{{ item }}"
-      guest: CentOS-7-host*
+      guest: "{{ item }}"
+      #guest: CentOS-7-host*
       state: absent
       force: yes
       validate_certs: no
-    #with_items:
-    #  - "{{ groups['CentOS-7-host'] }}"
+    with_items:
+      - "{{ groups['CentOS-7-host'] }}"

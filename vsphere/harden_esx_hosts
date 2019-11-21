@@ -4,38 +4,35 @@
   strategy: free
   vars:
     cluster_name: "cluster01" 
+    login: &login
+      hostname: "{{ hostname }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      validate_certs: no
   tasks:
+  
     - name: Get Services
       vmware_host_service_facts:
-        hostname: "{{ vcenter_hostname }}"
-        username: "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
         cluster_name: "{{ cluster_name }}" 
-        validate_certs: no
+        <<: *login
       tags: debug
+      
     - name: Get Advanced Options
       vmware_host_config_facts:
-        hostname: "{{ vcenter_hostname }}"
-        username: "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
         cluster_name: "{{ cluster_name }}" 
-        validate_certs: no
+        <<: *login
       tags: debug
+      
     - name: Get Firewall Rules
       vmware_host_firewall_facts:
-        hostname: '{{ vcenter_hostname }}'
-        username: '{{ vcenter_username }}'
-        password: '{{ vcenter_password }}'
         cluster_name: "{{ cluster_name }}" 
-        validate_certs: no
+        <<: *login
       tags: debug
+      
     - name: Set Advanced Options
       vmware_host_config_manager:
-        hostname: "{{ vcenter_hostname }}"
-        username: "{{ vcenter_username }}"
-        password: "{{ vcenter_password }}"
         cluster_name: "{{ cluster_name }}" 
-        validate_certs: no
+        <<: *login
         options:
             "UserVars.ESXiShellInteractiveTimeOut": 900
             "UserVars.ESXiShellTimeOut": 900
@@ -47,6 +44,7 @@
             "DCUI.Access": "root"
             "Net.BlockGuestBPDU": 1
             "Config.HostAgent.plugins.solo.enableMob": false
+            
     - name: Set NTP Service
       vmware_host_service_manager:
         hostname: "{{ vcenter_hostname }}"
@@ -57,6 +55,7 @@
         service_name: ntpd
         state: present
         service_policy: on   
+        
     - name: Set SSH Service
       vmware_host_service_manager:
         hostname: "{{ vcenter_hostname }}"
@@ -67,6 +66,7 @@
         service_name: TSM-SSH
         state: absent
         service_policy: off  
+        
     - name: Set Shell Service
       vmware_host_service_manager:
         hostname: "{{ vcenter_hostname }}"
@@ -77,6 +77,7 @@
         service_name: TSM
         state: absent
         service_policy: off    
+        
     - name: Enable Lockdown Mode
       vmware_host_lockdown:
         hostname: "{{ vcenter_hostname }}"
@@ -85,6 +86,7 @@
         cluster_name: "{{ cluster_name }}" 
         validate_certs: no
         state: present  
+        
     - name: Manage Firewall Rules
       vmware_host_firewall_manager:
         hostname: '{{ vcenter_hostname }}'

@@ -17,8 +17,10 @@
       state: powered_off
       force: yes
       validate_certs: no
-    with_items:
-      - "{{ hosts['CentOS-7-host*'] }}"
+    #with_items:
+    #  - "{{ hosts['CentOS-7-host*'] }}"
+    with_inventory_hostnames:
+    - CentOS-7-host*
       
   - name: Delete guest
     vsphere_guest:
@@ -27,5 +29,7 @@
       state: absent
       force: yes
       validate_certs: no
-    with_items:
-      - "{{ hosts['CentOS-7-host*'] }}"
+    with_inventory_hostnames:
+    - CentOS-7-host*
+    #with_items:
+    #  - "{{ hosts['CentOS-7-host*'] }}"

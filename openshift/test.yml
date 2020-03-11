@@ -1,0 +1,12 @@
+- name: Test openshift connection
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  tasks:
+  - name: Get a list of all service objects
+    k8s_info:
+      api_version: v1
+      kind: Service
+      namespace: testing
+    register: service_list

@@ -14,7 +14,7 @@
     vmware_guest:
       #guest: CentOS-7-host*
       name: "{{ item }}"
-      state: powered_off
+      state: poweredoff
       force: yes
       validate_certs: no
     with_items:

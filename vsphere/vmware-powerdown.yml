@@ -13,7 +13,7 @@
   - name: Power off guest
     vmware_guest:
       #guest: CentOS-7-host*
-      guest: "{{ item }}"
+      name: "{{ item }}"
       state: powered_off
       force: yes
       validate_certs: no
@@ -23,7 +23,7 @@
       
   - name: Delete guest
     vmware_guest:
-      guest: "{{ item }}"
+      name: "{{ item }}"
       #guest: CentOS-7-host*
       state: absent
       force: yes

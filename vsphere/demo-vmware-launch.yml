@@ -30,7 +30,7 @@
       #- vmtype: webserver
       
       disk:
-      - size_gb: 2
+      - size_gb: 4
         type: thin
         datastore: "{{ datastore }}"
       #customization:
